@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 23:37:30 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/03/27 00:11:58 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/03/28 19:02:44 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *c)
 	size_t	i;
 
 	i = 0;
+	if(!c)
+		return(i);
 	while (c[i])
 		i++;
 	return (i);
@@ -43,6 +45,8 @@ char	*ft_strdup(const char *s1)
 	char	*result;
 	int		i;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
 	result = malloc(sizeof(char) * (len + 1));
 	if (!result)
@@ -62,10 +66,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ret;
 	size_t	i;
 
-	if (!s)
+	if (!s || ft_strlen(s) <= start)
 		return (NULL);
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);
 	ret = malloc(sizeof(char) * (len + 1));
@@ -87,8 +89,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*ret;
 	int		i;
 
-	if (!s2)
-		return (NULL);
 	ret = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!ret)
 		return (NULL);

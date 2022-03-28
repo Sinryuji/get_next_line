@@ -9,3 +9,9 @@
 # Executables
 *.exe
 *.out
+
+# LLDB
+*.dSYM
+
+# Header
+*.gch
