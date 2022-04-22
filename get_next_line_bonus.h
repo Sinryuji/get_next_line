@@ -6,7 +6,7 @@
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 23:37:08 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/03/30 13:08:32 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/04/22 14:36:56 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 #  define BUFFER_SIZE 42
 # endif
 
-// get_next_lint.c
+/* get_next_lint.c */
 char	*get_next_line(int fd);
 
-// get_next_line_util.c
+/* get_next_line_util.c */
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *c);
