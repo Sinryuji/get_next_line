@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeongki <hyeongki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 23:36:51 by hyeongki          #+#    #+#             */
-/*   Updated: 2022/03/30 13:04:41 by hyeongki         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:37:58 by hyeongki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../include/get_next_line.h"
 
 static char	*get_line(char **save)
 {
@@ -62,7 +62,7 @@ static char	*read_line(int fd, char *save, char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[OPEN_MAX];
+	static char	*save;
 	char		*buf;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -70,8 +70,8 @@ char	*get_next_line(int fd)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	save[fd] = read_line(fd, save[fd], buf);
-	if (!save[fd])
+	save = read_line(fd, save, buf);
+	if (!save)
 		return (NULL);
-	return (get_line(&save[fd]));
+	return (get_line(&save));
 }
